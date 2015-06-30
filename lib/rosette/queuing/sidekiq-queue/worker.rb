@@ -7,6 +7,8 @@ module Rosette
     module SidekiqQueue
 
       class Worker < Rosette::Queuing::Worker
+        attr_reader :rosette_config, :logger
+
         def initialize(rosette_config, logger, options = {})
           @rosette_config = rosette_config
           @logger = logger
@@ -27,8 +29,10 @@ module Rosette
         end
 
         def start
-          Sidekiq::CLI.instance.send(:load_celluloid)
-          Sidekiq::CLI.instance.run
+          rosette_config.error_reporting.with_error_reporting do
+            Sidekiq::CLI.instance.send(:load_celluloid)
+            Sidekiq::CLI.instance.run
+          end
         end
       end
 
