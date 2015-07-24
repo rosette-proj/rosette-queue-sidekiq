@@ -29,7 +29,7 @@ module Rosette
         end
 
         def start
-          rosette_config.error_reporting.with_error_reporting do
+          rosette_config.error_reporter.with_error_reporting do
             Sidekiq::CLI.instance.send(:load_celluloid)
             Sidekiq::CLI.instance.run
           end

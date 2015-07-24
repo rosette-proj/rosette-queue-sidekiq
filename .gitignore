@@ -1,7 +1,6 @@
-Jarfile.lock
 Gemfile.lock
-.jbundler/
 .DS_Store
 .yardoc/
 doc/
 coverage/
+classpath.txt

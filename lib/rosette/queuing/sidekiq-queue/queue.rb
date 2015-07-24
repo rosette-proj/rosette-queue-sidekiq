@@ -5,6 +5,12 @@ module Rosette
     module SidekiqQueue
 
       class Queue < Rosette::Queuing::Queue
+        attr_reader :configurator
+
+        def initialize(configurator)
+          @configurator = configurator
+        end
+
         def enqueue(job)
           Sidekiq::Client.enqueue_to_in(
             job.class.queue_name, job.delay, JobWrapper, {

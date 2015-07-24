@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe Rosette::Queuing::SidekiqQueue::Queue do
-  let(:queue) { Rosette::Queuing::SidekiqQueue::Queue.new }
+  let(:queue) { Rosette::Queuing::SidekiqQueue::Queue.new(nil) }
   let(:job) { TestJob.new('foo', 'bar') }
 
   describe '#enqueue' do

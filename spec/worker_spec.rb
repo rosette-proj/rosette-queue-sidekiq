@@ -5,8 +5,13 @@ require 'spec_helper'
 include Rosette::Queuing::SidekiqQueue
 
 describe Worker do
-  let(:rosette_config) { :rosette_config }
   let(:logger) { NullLogger.new }
+
+  let(:rosette_config) do
+    Rosette.build_config do |config|
+      config.use_error_reporter(Rosette::Core::BufferedErrorReporter.new)
+    end
+  end
 
   describe '#initialize' do
     it 'assigns job wrapper config' do
