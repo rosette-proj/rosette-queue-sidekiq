@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rosette-proj/rosette-queue-sidekiq.svg)](https://travis-ci.org/rosette-proj/rosette-queue-sidekiq) [![Code Climate](https://codeclimate.com/github/rosette-proj/rosette-queue-sidekiq/badges/gpa.svg)](https://codeclimate.com/github/rosette-proj/rosette-queue-sidekiq)
+[![Build Status](https://travis-ci.org/rosette-proj/rosette-queue-sidekiq.svg)](https://travis-ci.org/rosette-proj/rosette-queue-sidekiq) [![Code Climate](https://codeclimate.com/github/rosette-proj/rosette-queue-sidekiq/badges/gpa.svg)](https://codeclimate.com/github/rosette-proj/rosette-queue-sidekiq) [![Test Coverage](https://codeclimate.com/github/rosette-proj/rosette-queue-sidekiq/badges/coverage.svg)](https://codeclimate.com/github/rosette-proj/rosette-queue-sidekiq/coverage)
 
 rosette-queue-sidekiq
 ====================
