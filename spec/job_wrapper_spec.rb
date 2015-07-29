@@ -21,5 +21,13 @@ describe JobWrapper do
       expect(rosette_config).to receive(:signal)
       job.perform('klass' => TestJob.name, 'args' => ['arg1', 'arg2'])
     end
+
+    it 'reports errors and re-raises them when they occur' do
+      expect(rosette_config).to receive(:signal).and_raise(RuntimeError)
+      expect do
+        job.perform('klass' => TestJob.name, 'args' => ['arg1', 'arg2'])
+      end.to raise_error(RuntimeError)
+      expect(rosette_config.error_reporter.errors.size).to eq(1)
+    end
   end
 end

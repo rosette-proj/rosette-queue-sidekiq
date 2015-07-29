@@ -13,10 +13,11 @@ module Rosette
         end
 
         def perform(options)
-          self.class.rosette_config.error_reporter.with_error_reporting do
-            job = get_const_chain(options['klass']).new(*options['args'])
-            job.work(self.class.rosette_config, self.class.logger)
-          end
+          job = get_const_chain(options['klass']).new(*options['args'])
+          job.work(self.class.rosette_config, self.class.logger)
+        rescue => e
+          self.class.rosette_config.error_reporter.report_error(e)
+          raise e
         end
 
         private
